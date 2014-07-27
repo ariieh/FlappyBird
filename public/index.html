@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stickman</title>
+    <style>
+	html, body, canvas{
+		padding: 0;
+		margin: 0;
+		outline: 0;
+		overflow: hidden;
+	}
+    canvas{
+      background:transparent;
+    }
+    .hide{
+      position:absolute;
+      top:-600px;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="main-canvas"></canvas>
+    
+    <script src="jquery-1.11.1.min.js"></script>
+    <script src="keymaster.js"></script>
+    <script src="bird.js"></script>
+    <script src="wall.js"></script>
+    <script src="game.js"></script>
+    
+  <div class="hide">
+    <img src="images/parrot.gif" width="300" height="225" id="bird">
+  </div>
+    
+    <script>
+	$(document).ready(function(){
+		var height = $(window).height();
+		var width = $(window).width();
+
+        var canvas = document.getElementById("main-canvas");
+        var birdImage = document.getElementById("bird");
+
+		$('#main-canvas').attr({"width":width,"height":height});
+  	  	new FlappyBird.Game(width, height, birdImage).start(canvas);
+	});	  
+		
+    </script>
+    
+</body>
+</html>
