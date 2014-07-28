@@ -17,6 +17,19 @@
     this.xAxis = ((this.xAxis + this.vx));
     this.yAxis = ((this.yAxis + this.vy));
   	ctx.drawImage(this.img, this.xAxis, this.yAxis, 300, 225);
+		
+    ctx.fillStyle = this.col;
+    ctx.beginPath();
+
+    ctx.arc(
+      this.xAxis + 185,
+      this.yAxis + 140,
+      25,
+      0,
+      2 * Math.PI,
+      false
+    );
+		ctx.fill();
   };
 
   Bird.createBird = function (dimX, dimY){

@@ -12,8 +12,12 @@
 		this.walls = [];
   }
   
-  Game.prototype.genWall = function(){
-    this.walls.push(FlappyBird.Wall.createWall(this.dimX, this.dimY));
+  Game.prototype.genBottomWall = function(){
+    this.walls.push(FlappyBird.Wall.createBottomWall(this.dimX, this.dimY));
+  }
+	
+  Game.prototype.genTopWall = function(){
+    this.walls.push(FlappyBird.Wall.createTopWall(this.dimX, this.dimY));
   }
 	
   Game.prototype.removeWalls = function(){
@@ -42,7 +46,7 @@
 				obj.vy = 0;
 				obj.yAxis = -70;
 			} else if ((that.dimY - obj.yAxis) > 150){
-					obj.vy += vel / Math.pow((that.dimY - obj.yAxis + obj.img.height / 2), 2);
+					obj.vy += vel / Math.pow((that.dimY - obj.yAxis + obj.img.height / 2), 2.1);
 			} else {			
 					obj.vy = 0;
 					obj.yAxis = that.dimY - 150;
@@ -50,10 +54,18 @@
 		});
   };
   
-	Game.prototype.move = function(){
-    this.walls.forEach(function (wall) {
-      wall.move();
-    });
+	Game.prototype.checkBounds = function(){
+		var game = this;
+				
+		this.gravObjects.forEach(function(obj){
+			if (obj.xAxis < -150){
+				obj.vx = 0;
+				obj.xAxis = -150;
+			} else if(obj.xAxis > game.dimX - 250){
+				obj.vx = 0;
+				obj.xAxis = game.dimX - 250;
+			}
+		});
 	}
 	
   Game.prototype.start = function (canvasEl) {		
@@ -72,19 +84,28 @@
     this.gameIntervalID = window.setInterval(function() {
       game.gravity();
       game.draw(ctx);
+			game.checkBounds();
     }, 5);
 		
     this.wallIntervalID = window.setInterval(function() {
-			game.genWall();
+			game.genBottomWall();
+			game.genTopWall();
 			game.removeWalls();
     }, 2000);
   };
   
   Game.prototype.bindKeyHandlers = function () {
     var game = this;
-    key('up', function(){ game.bird.vy = 0; game.bird.move([0,-2]); game.bird.power([0,-5]) });
-    key('right', function(){ game.bird.move([50,0]) });
-    key('left', function(){ game.bird.move([-50,0]) });
+    key('up', function(){ 
+			game.bird.vy = 0;
+			if (game.bird.yAxis >= game.dimY - 150){
+				game.bird.move([0,-100]);
+				game.bird.power([0,-3]);
+			}
+			game.bird.power([0,-3]);
+		});
+    key('right', function(){ game.bird.power([0.5,0]) });
+    key('left', function(){ game.bird.power([-0.5,0]) });
   };
   
 })(this);
