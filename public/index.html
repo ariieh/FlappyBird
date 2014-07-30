@@ -29,6 +29,7 @@
     
   <div class="hide">
     <img src="images/parrot.gif" width="300" height="225" id="bird">
+    <img src="images/palm.png" width="283" height="360" id="palm">
   </div>
     
     <script>
@@ -38,9 +39,10 @@
 
         var canvas = document.getElementById("main-canvas");
         var birdImage = document.getElementById("bird");
+        var palmImage = document.getElementById("palm");
 
 		$('#main-canvas').attr({"width":width,"height":height});
-  	  	new FlappyBird.Game(width, height, birdImage).start(canvas);
+  	  	new FlappyBird.Game(width, height, birdImage, palmImage).start(canvas);
 	});	  
 		
     </script>

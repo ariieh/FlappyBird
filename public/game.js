@@ -1,8 +1,9 @@
 (function (root) {
   var FlappyBird = root.FlappyBird = (root.FlappyBird || {});
   
-  var Game = FlappyBird.Game = function (dimX, dimY, birdImage) {
+  var Game = FlappyBird.Game = function (dimX, dimY, birdImage, palmImage) {
     Game.birdImage = birdImage;
+		Game.palmImage = palmImage;
 		
     this.dimX = dimX;
     this.dimY = dimY;
@@ -13,11 +14,11 @@
   }
   
   Game.prototype.genBottomWall = function(){
-    this.walls.push(FlappyBird.Wall.createBottomWall(this.dimX, this.dimY));
+    this.walls.push(FlappyBird.Wall.createBottomWall(this.dimX, this.dimY, Game.palmImage));
   }
 	
   Game.prototype.genTopWall = function(){
-    this.walls.push(FlappyBird.Wall.createTopWall(this.dimX, this.dimY));
+    this.walls.push(FlappyBird.Wall.createTopWall(this.dimX, this.dimY, Game.palmImage));
   }
 	
   Game.prototype.removeWalls = function(){
@@ -54,7 +55,7 @@
 		});
   };
   
-	Game.prototype.checkBounds = function(){
+	Game.prototype.checkXBounds = function(){
 		var game = this;
 				
 		this.gravObjects.forEach(function(obj){
@@ -67,6 +68,28 @@
 			}
 		});
 	}
+	
+	Game.prototype.checkCollisions = function(){
+		var bird = this.bird;
+		var game = this;
+		
+		this.walls.forEach(function(wall){
+			if (bird.xAxis + bird.xOffset + bird.side > wall.xAxis &&
+				  bird.xAxis + bird.xOffset < wall.xAxis + wall.width){
+					if (wall.type === "bottom"){
+						if (bird.yAxis + bird.yOffset + bird.side > wall.yAxis){
+							game.stopGame();
+							alert("Game over!");
+						}
+					} else {
+						if (bird.yAxis + bird.yOffset < wall.yAxis){
+							game.stopGame();
+							alert("Game over!");
+						}
+					}
+			}
+		});
+	};
 	
   Game.prototype.start = function (canvasEl) {		
     this.bindKeyHandlers();
@@ -84,7 +107,8 @@
     this.gameIntervalID = window.setInterval(function() {
       game.gravity();
       game.draw(ctx);
-			game.checkBounds();
+			game.checkXBounds();
+      game.checkCollisions();
     }, 5);
 		
     this.wallIntervalID = window.setInterval(function() {

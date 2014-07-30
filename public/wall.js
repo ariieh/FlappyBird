@@ -1,31 +1,34 @@
 (function (root) {
   var FlappyBird = root.FlappyBird = (root.FlappyBird || {});
   
-  var Wall = FlappyBird.Wall = function (dimX, dimY, type) {
+  var Wall = FlappyBird.Wall = function (dimX, dimY, type, img) {
 		this.dimX = dimX;
 		this.dimY = dimY;
 		this.xAxis = dimX;
+		this.width = 100;
 		this.type = type;
+		this.img = img;
 		
 		if (type === "bottom"){
-			this.yAxis = Math.random() * (dimY + 100 - dimY / 2) + dimY / 2;
+			this.yAxis = Math.random() * (dimY - dimY / 2 + 100) + dimY / 2 + 100;
 		} else {
-			this.yAxis = Math.random() * (dimY / 2 - 100);
+			this.yAxis = Math.random() * (dimY / 2);
 		}
 		
     this.vx = -1;
 	};
 	  
   Wall.prototype.draw = function (ctx) {
-    this.xAxis = ((this.xAxis + this.vx));
+    this.xAxis = (this.xAxis + this.vx);
 
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "brown";
     ctx.beginPath();
 		
 		if (this.type === "bottom"){
-	  	ctx.rect(this.xAxis, this.yAxis, 100, this.dimY - this.yAxis);
+	  	// ctx.rect(this.xAxis, this.yAxis, this.width, this.dimY - this.yAxis);
+	  	ctx.drawImage(this.img, this.xAxis - this.width, this.yAxis, 283, 360);
 		} else {
-			ctx.rect(this.xAxis, 0, 100, this.yAxis);
+			ctx.rect(this.xAxis, 0, this.width, this.yAxis);
 		}
 
 		ctx.fill();
@@ -35,12 +38,12 @@
 		this.xAxis += this.vx;
 	}
 
-  Wall.createBottomWall = function (dimX, dimY){		
-    return new Wall(dimX, dimY, "bottom");
+  Wall.createBottomWall = function (dimX, dimY, img){		
+    return new Wall(dimX, dimY, "bottom", img);
   };
 	
-  Wall.createTopWall = function (dimX, dimY){		
-    return new Wall(dimX, dimY, "top");
+  Wall.createTopWall = function (dimX, dimY, img){		
+    return new Wall(dimX, dimY, "top", img);
   };
     
 })(this);
