@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Score.create!(score: 100, name: "arieh")
+Score.create!(score: 90, name: "arieh")
+Score.create!(score: 80, name: "arieh")
+Score.create!(score: 70, name: "arieh")
+Score.create!(score: 60, name: "arieh")
+Score.create!(score: 50, name: "arieh")
+Score.create!(score: 40, name: "arieh")
+Score.create!(score: 30, name: "arieh")
+Score.create!(score: 20, name: "arieh")
+Score.create!(score: 10, name: "conz")

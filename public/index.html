@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head>	
     <title>Flappy Bird</title>
     <style>
 	html, body, canvas{
@@ -9,13 +9,116 @@
 		outline: 0;
 		overflow: hidden;
 	}
+	
     canvas{
+		position: absolute;
     	background:url('background.jpg');
+		z-index: 999;
     }
+	
     .hide{
       position:absolute;
       top:-600px;
     }
+	
+	#score{
+		position: absolute;
+		z-index: 1000;
+		font-weight: lighter;
+		font-family: sans-serif;
+		font-size: 16px;
+		padding: 15px;
+		margin: 10px;
+		background: rgb(33, 194, 33);
+	}
+	
+	#game-over-modal{
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 300px;
+		margin-left: -150px;
+		margin-top: -150px;
+		background: white;
+		z-index: 1000;
+		border: 1px solid #ccc;
+		-moz-box-shadow: 0 0 5px #888;
+		-webkit-box-shadow: 0 0 5px #888;
+		box-shadow: 0 0 5px #888;
+	}
+	
+	#game-over-modal.active{
+		display: block;
+	}
+	
+	#game-over-modal > #modal-content{
+		padding: 20px;
+		font-weight: lighter;
+		font-family: sans-serif;
+		font-size: 16px;
+	}
+	
+	#game-over-modal > #modal-content > ul{
+		list-style: none;
+		padding: 0;
+	}
+	
+	#game-over-modal > #modal-content.default > ul > li{
+		text-align: center;
+		margin: 20px 0px;
+		font-size: 18px;
+		padding: 10px 0px;
+		background: orange;
+		cursor: pointer;
+	}
+		
+	/* header */
+	#game-over-modal > #modal-header{
+		padding: 20px;
+		font-weight: lighter;
+		font-family: sans-serif;
+		font-size: 20px;
+		background: lightgrey;
+		text-align: center;
+	}
+	
+	#game-over-modal > #modal-header > #back-arrow{
+		float: left;
+		cursor: pointer;
+	}
+	
+	/* high scores */
+	#game-over-modal > #modal-content.high-scores > ul > li{
+		margin: 10px 0px;
+		font-size: 14px;
+		padding: 10px 0px;
+		background: orange;
+	}
+	
+	#game-over-modal > #modal-content.high-scores > #high-scores-table{
+		width: 100%;
+		text-align: center;
+		border-collapse: collapse;
+	}
+	
+	#game-over-modal > #modal-content.high-scores > #high-scores-table td{
+		border: 1px solid #ccc;
+	}
+	
+	#game-over-modal > #modal-content.high-scores > #high-scores-table tr:nth-child(even){
+		background: #3498db;
+	}
+	
+	#game-over-modal > #modal-content.high-scores > #high-scores-table tr:nth-child(odd){
+		background: rgb(176, 209, 231);
+	}
+	
+	#game-over-modal > #modal-content.high-scores > #high-scores-table tr:first-child{
+		background: white;
+		font-weight: bold;
+	}
+
     </style>
 </head>
 <body>
@@ -26,15 +129,23 @@
     <script src="bird.js"></script>
     <script src="wall.js"></script>
     <script src="game.js"></script>
+	
+	<span id="score">Score:</span>
     
   <div class="hide">
     <img src="images/parrot.gif" width="300" height="225" id="bird">
     <img src="images/palm.png" width="283" height="360" id="palm">
     <img src="images/vine.png" width="227" height="479" id="vine">
   </div>
+  
+  <div id="game-over-modal" class="active">
+	  <div id="modal-header">Game over!</div>
+	  <div id="modal-content" class="default"></div>
+  </div>
     
     <script>
 	$(document).ready(function(){
+		//start game
 		var height = $(window).height();
 		var width = $(window).width();
 
@@ -42,10 +153,76 @@
         var birdImage = document.getElementById("bird");
         var palmImage = document.getElementById("palm");
         var vineImage = document.getElementById("vine");
-
+		var scoreBox = document.getElementById("score");
+		var game;
+		
+		function newGame(){
+	  	  	game = new FlappyBird.Game(width, height, birdImage, palmImage, vineImage, scoreBox);
+			game.start(canvas);
+		}
+		
 		$('#main-canvas').attr({"width":width,"height":height});
-  	  	new FlappyBird.Game(width, height, birdImage, palmImage, vineImage).start(canvas);
-	});	  
+  	  	newGame();
+		submitScoreTemplate();
+		
+		//templates
+		function highScoreTemplate(data){
+			$("#modal-content").removeClass("default");
+			$("#modal-content").addClass("high-scores");
+			$("#modal-header").html("<span id='back-arrow'>&#x21b5;</span>High Scores");
+			
+			var table = $("<table id='high-scores-table'></table>");
+			table.append("<tr><td>Name</td><td>Score</td></tr>");
+			
+			data.forEach(function(obj){
+				tableRow = $("<tr></tr>");
+				tableRow.append("<td>" + obj.name + "</td>");
+				tableRow.append("<td>" + obj.score + "</td>");
+				table.append(tableRow);
+			});
+			$("#modal-content").html(table);
+		}
+		
+		function submitScoreTemplate(){
+			$("#modal-content").html("<ul><li id='play-again'>Play again</li><li id='high-scores'>See high scores</li><li id='submit-score'>Submit score</li></ul>");
+		}
+
+		//event handlers
+		$("#modal-content").on("click", "li#play-again", function(event){
+	  	  	newGame();
+			$("#game-over-modal").removeClass("active");
+		});
+		
+		$("#modal-content").on("click", "li#submit-score", function(event){
+			var data = {score: game.score, name: "Ari"};
+			
+			$.ajax({
+				url: "/scores",
+				type: "POST",
+				data: data,
+				success: function(data){
+				}
+			});
+			
+		});
+		
+		$("#modal-content").on("click", "li#high-scores", function(event){
+			$.ajax({
+				url: "/scores",
+				type: "GET",
+				success: function(data){
+					highScoreTemplate(data);
+				}
+			});
+		});
+		
+		$("#modal-header").on("click", "#back-arrow", function(event){
+			$("#modal-content").addClass("default");
+			$("#modal-content").removeClass("high-scores");
+			submitScoreTemplate();
+		});		
+		
+	});
 		
     </script>
     

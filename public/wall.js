@@ -10,9 +10,9 @@
 		this.img = img;
 		
 		if (type === "bottom"){
-			this.yAxis = Math.random() * (dimY - dimY / 2 + 100) + dimY / 2 + 100;
+			this.yAxis = Math.random() * (dimY - dimY / 2 + 50) + dimY / 2 + 50;
 		} else {
-			this.yAxis = Math.random() * (dimY / 2);
+			this.yAxis = Math.random() * (dimY / 2) - 100;
 		}
 		
     this.vx = -1;

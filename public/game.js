@@ -1,10 +1,12 @@
 (function (root) {
   var FlappyBird = root.FlappyBird = (root.FlappyBird || {});
   
-  var Game = FlappyBird.Game = function (dimX, dimY, birdImage, palmImage, vineImage) {
+  var Game = FlappyBird.Game = function (dimX, dimY, birdImage, palmImage, vineImage, scoreBox) {
     Game.birdImage = birdImage;
 		Game.palmImage = palmImage;
 		Game.vineImage = vineImage;
+		Game.scoreBox = scoreBox;
+		this.score = 0;
 		
     this.dimX = dimX;
     this.dimY = dimY;
@@ -24,7 +26,7 @@
 	
   Game.prototype.removeWalls = function(){
 		for (var i = 0; i < this.walls.length; i++){
-			if (this.walls[i].xAxis < 0){
+			if (this.walls[i].xAxis < -100){
 				this.walls.splice(i, 1);
 			}
 		}
@@ -80,12 +82,10 @@
 					if (wall.type === "bottom"){
 						if (bird.yAxis + bird.yOffset + bird.side > wall.yAxis){
 							game.stopGame();
-							alert("Game over!");
 						}
 					} else {
 						if (bird.yAxis + bird.yOffset < wall.yAxis){
 							game.stopGame();
-							alert("Game over!");
 						}
 					}
 			}
@@ -100,12 +100,19 @@
   Game.prototype.stopGame = function () {
     window.clearInterval(this.gameIntervalID);
     window.clearInterval(this.wallIntervalID);
+		$("#game-over-modal").addClass("active");
   };
+	
+	Game.prototype.setScore = function(){
+		this.score += 1;
+		$(Game.scoreBox).html("Score: " + this.score)
+	}
   
   Game.prototype.step = function (ctx) {
     var game = this;
 		
     this.gameIntervalID = window.setInterval(function() {
+			game.setScore();
       game.gravity();
       game.draw(ctx);
 			game.checkXBounds();
