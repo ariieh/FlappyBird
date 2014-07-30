@@ -26,9 +26,10 @@
 		
 		if (this.type === "bottom"){
 	  	// ctx.rect(this.xAxis, this.yAxis, this.width, this.dimY - this.yAxis);
-	  	ctx.drawImage(this.img, this.xAxis - this.width, this.yAxis, 283, 360);
+	  	ctx.drawImage(this.img, this.xAxis - 100, this.yAxis, 283, 360);
 		} else {
-			ctx.rect(this.xAxis, 0, this.width, this.yAxis);
+			// ctx.rect(this.xAxis, 0, this.width, this.yAxis);
+	  	ctx.drawImage(this.img, this.xAxis - 50, this.yAxis - 479, 227, 479);
 		}
 
 		ctx.fill();

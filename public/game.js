@@ -1,9 +1,10 @@
 (function (root) {
   var FlappyBird = root.FlappyBird = (root.FlappyBird || {});
   
-  var Game = FlappyBird.Game = function (dimX, dimY, birdImage, palmImage) {
+  var Game = FlappyBird.Game = function (dimX, dimY, birdImage, palmImage, vineImage) {
     Game.birdImage = birdImage;
 		Game.palmImage = palmImage;
+		Game.vineImage = vineImage;
 		
     this.dimX = dimX;
     this.dimY = dimY;
@@ -18,7 +19,7 @@
   }
 	
   Game.prototype.genTopWall = function(){
-    this.walls.push(FlappyBird.Wall.createTopWall(this.dimX, this.dimY, Game.palmImage));
+    this.walls.push(FlappyBird.Wall.createTopWall(this.dimX, this.dimY, Game.vineImage));
   }
 	
   Game.prototype.removeWalls = function(){
