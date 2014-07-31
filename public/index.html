@@ -38,6 +38,7 @@
 		top: 50%;
 		left: 50%;
 		width: 300px;
+		height: 300px;
 		margin-left: -150px;
 		margin-top: -150px;
 		background: white;
@@ -71,6 +72,11 @@
 		padding: 10px 0px;
 		background: orange;
 		cursor: pointer;
+	}
+	
+	#game-over-modal > #modal-content.default > ul > li:hover{
+		background: rgba(255, 185, 53, 0.89);
+		box-shadow: 0 0 5px rgba(255, 185, 53, 0.89);
 	}
 		
 	/* header */
@@ -193,11 +199,19 @@
   	  	newGame();
 		defaultTemplate();
 		
+		//helper methods
+		function swapHeight(){
+		    firstHeight = $('#game-over-modal').height();
+		    secondHeight = $('#game-over-modal').css('height', 'auto').height();
+			$('#game-over-modal').height(firstHeight).animate({height: secondHeight}, 100);
+		}
+		
 		//templates
 		function defaultTemplate(){
 			$("#back-arrow").remove();
 			$("#modal-header").html("Game Over!");
 			$("#modal-content").html("<ul><li id='play-again'>Play again</li><li id='high-scores'>See high scores</li><li id='submit-score'>Submit score</li></ul>");
+			swapHeight();
 		}
 
 		function highScoreTemplate(data){			
@@ -215,6 +229,7 @@
 			$("#game-over-modal").prepend("<span id='back-arrow'>&#x21b5;</span>");
 			$("#modal-header").html("High Scores");
 			$("#modal-content").html(table);
+			swapHeight();
 		}
 		
 		function submitScoreTemplate(){
@@ -223,6 +238,7 @@
 			$("#game-over-modal").prepend("<span id='back-arrow'>&#x21b5;</span>");
 			$("#modal-header").html("Name?");
 			$("#modal-content").html("<input type='text' id='name-box'></input>");
+			swapHeight();
 		}
 
 		//event handlers
