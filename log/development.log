@@ -2264,3 +2264,342 @@ Started GET "/scores" for 127.0.0.1 at 2014-07-30 17:52:25 -0400
 Processing by ScoresController#index as */*
   [1m[36mScore Load (0.4ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
 Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:04:41 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.3ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 18ms (Views: 6.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:04:44 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:04:46 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:04:48 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:04:50 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.3ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:05:13 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:05:36 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:05:37 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:05:39 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:05:41 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.3ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:05:43 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:05:48 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:06:08 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-30 18:07:30 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:49:29 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.7ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 27ms (Views: 11.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:50:00 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.3ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:50:08 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.3ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:50:16 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.3ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:50:29 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.3ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:51:25 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.3ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:51:55 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:54:15 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:55:46 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:55:52 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:56:33 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:56:35 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.3ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:56:38 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:56:40 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.3ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:56:53 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:57:35 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:57:47 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 07:59:54 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.3ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/scores" for 127.0.0.1 at 2014-07-31 09:22:32 -0400
+Processing by ScoresController#create as */*
+  Parameters: {"score"=>"1119", "name"=>"Ari"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "scores" ("created_at", "name", "score", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-07-31 13:22:32.351314"], ["name", "Ari"], ["score", 1119], ["updated_at", "2014-07-31 13:22:32.351314"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mScore Load (0.3ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 23ms (Views: 2.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 09:22:36 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 09:23:00 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/scores" for 127.0.0.1 at 2014-07-31 09:23:16 -0400
+Processing by ScoresController#create as */*
+  Parameters: {"score"=>"420", "name"=>"Ari"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "scores" ("created_at", "name", "score", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-07-31 13:23:16.137566"], ["name", "Ari"], ["score", 420], ["updated_at", "2014-07-31 13:23:16.137566"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mScore Load (0.4ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/scores" for 127.0.0.1 at 2014-07-31 09:24:06 -0400
+Processing by ScoresController#create as */*
+  Parameters: {"score"=>"549", "name"=>"Ari"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "scores" ("created_at", "name", "score", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-07-31 13:24:06.086711"], ["name", "Ari"], ["score", 549], ["updated_at", "2014-07-31 13:24:06.086711"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mScore Load (0.3ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 8ms (Views: 2.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 09:24:14 -0400
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/scores" for 127.0.0.1 at 2014-07-31 09:24:17 -0400
+Processing by ScoresController#create as */*
+  Parameters: {"score"=>"1241", "name"=>"Arieh"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "scores" ("created_at", "name", "score", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-07-31 13:24:17.987528"], ["name", "Arieh"], ["score", 1241], ["updated_at", "2014-07-31 13:24:17.987528"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mScore Load (0.3ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 8ms (Views: 3.4ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/scores" for 127.0.0.1 at 2014-07-31 09:25:31 -0400
+Processing by ScoresController#create as */*
+  Parameters: {"score"=>"3619", "name"=>"Ari"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "scores" ("created_at", "name", "score", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-07-31 13:25:31.395980"], ["name", "Ari"], ["score", 3619], ["updated_at", "2014-07-31 13:25:31.395980"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mScore Load (0.3ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 7ms (Views: 2.4ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/scores" for 127.0.0.1 at 2014-07-31 09:26:20 -0400
+Processing by ScoresController#create as */*
+  Parameters: {"score"=>"6910", "name"=>"Arieh"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "scores" ("created_at", "name", "score", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-07-31 13:26:20.624860"], ["name", "Arieh"], ["score", 6910], ["updated_at", "2014-07-31 13:26:20.624860"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mScore Load (0.4ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 8ms (Views: 3.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 09:58:22 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.4ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 17ms (Views: 5.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/scores" for 127.0.0.1 at 2014-07-31 09:58:32 -0400
+Processing by ScoresController#create as */*
+  Parameters: {"score"=>"3095", "name"=>"arieh"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "scores" ("created_at", "name", "score", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-07-31 13:58:32.674130"], ["name", "arieh"], ["score", 3095], ["updated_at", "2014-07-31 13:58:32.674130"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mScore Load (0.3ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 12ms (Views: 2.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 10:51:27 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (1.0ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 26ms (Views: 9.7ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/scores" for 127.0.0.1 at 2014-07-31 10:51:35 -0400
+Processing by ScoresController#create as */*
+  Parameters: {"score"=>"2839", "name"=>"Arieh"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "scores" ("created_at", "name", "score", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-07-31 14:51:35.036870"], ["name", "Arieh"], ["score", 2839], ["updated_at", "2014-07-31 14:51:35.036870"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 11ms (Views: 1.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 11:05:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ScoresController#index as */*
+  [1m[35mScore Load (0.3ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 17ms (Views: 5.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/scores" for 127.0.0.1 at 2014-07-31 11:06:01 -0400
+Processing by ScoresController#create as */*
+  Parameters: {"score"=>"2886", "name"=>"Arieh"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "scores" ("created_at", "name", "score", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-07-31 15:06:01.890003"], ["name", "Arieh"], ["score", 2886], ["updated_at", "2014-07-31 15:06:01.890003"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mScore Load (0.2ms)[0m  SELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10
+Completed 200 OK in 12ms (Views: 2.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2014-07-31 13:40:56 -0400
+Processing by ScoresController#index as */*
+  [1m[36mScore Load (0.2ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/scores" for 127.0.0.1 at 2014-07-31 13:43:36 -0400
+Processing by ScoresController#create as */*
+  Parameters: {"score"=>"10195", "name"=>"Ari"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "scores" ("created_at", "name", "score", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-07-31 17:43:36.037594"], ["name", "Ari"], ["score", 10195], ["updated_at", "2014-07-31 17:43:36.037594"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36mScore Load (0.4ms)[0m  [1mSELECT  "scores".* FROM "scores"   ORDER BY score DESC LIMIT 10[0m
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 2.3ms)

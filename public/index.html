@@ -45,7 +45,7 @@
 		border: 1px solid #ccc;
 		-moz-box-shadow: 0 0 5px #888;
 		-webkit-box-shadow: 0 0 5px #888;
-		box-shadow: 0 0 5px #888;
+		box-shadow: 0 0 5px #888;		
 	}
 	
 	#game-over-modal.active{
@@ -83,9 +83,22 @@
 		text-align: center;
 	}
 	
-	#game-over-modal > #modal-header > #back-arrow{
-		float: left;
+	#game-over-modal > #back-arrow{
+		position: absolute;
 		cursor: pointer;
+		padding: 20px;
+		font-weight: lighter;
+		font-family: sans-serif;
+		font-size: 20px;
+	}
+	
+	#game-over-modal > #back-arrow:hover{
+	    -webkit-transition: all 0.15s ease-in-out;
+	    -moz-transition: all 0.15s ease-in-out;
+	    -ms-transition: all 0.15s ease-in-out;
+	    -o-transition: all 0.15s ease-in-out;
+		
+	    text-shadow: 0 0 1px #2ecc71;
 	}
 	
 	/* high scores */
@@ -118,6 +131,21 @@
 		background: white;
 		font-weight: bold;
 	}
+	
+	/* submit */
+	#game-over-modal > #modal-content.submit-score > #name-box{
+		display: block;
+		margin: auto;
+		width: 200px;
+		font-size: 18px;
+		outline: 0;
+		border: 1px solid #ccc;
+		text-align: center;
+	}
+	
+	#game-over-modal > #modal-content.submit-score > #name-box:focus{
+	    border: 1px solid rgba(81, 203, 238, 1);
+	}
 
     </style>
 </head>
@@ -138,8 +166,8 @@
     <img src="images/vine.png" width="227" height="479" id="vine">
   </div>
   
-  <div id="game-over-modal" class="active">
-	  <div id="modal-header">Game over!</div>
+  <div id="game-over-modal" class="">
+	  <div id="modal-header"></div>
 	  <div id="modal-content" class="default"></div>
   </div>
     
@@ -163,14 +191,16 @@
 		
 		$('#main-canvas').attr({"width":width,"height":height});
   	  	newGame();
-		submitScoreTemplate();
+		defaultTemplate();
 		
 		//templates
-		function highScoreTemplate(data){
-			$("#modal-content").removeClass("default");
-			$("#modal-content").addClass("high-scores");
-			$("#modal-header").html("<span id='back-arrow'>&#x21b5;</span>High Scores");
-			
+		function defaultTemplate(){
+			$("#back-arrow").remove();
+			$("#modal-header").html("Game Over!");
+			$("#modal-content").html("<ul><li id='play-again'>Play again</li><li id='high-scores'>See high scores</li><li id='submit-score'>Submit score</li></ul>");
+		}
+
+		function highScoreTemplate(data){			
 			var table = $("<table id='high-scores-table'></table>");
 			table.append("<tr><td>Name</td><td>Score</td></tr>");
 			
@@ -180,11 +210,19 @@
 				tableRow.append("<td>" + obj.score + "</td>");
 				table.append(tableRow);
 			});
+			$("#modal-content").removeClass("default");
+			$("#modal-content").addClass("high-scores");
+			$("#game-over-modal").prepend("<span id='back-arrow'>&#x21b5;</span>");
+			$("#modal-header").html("High Scores");
 			$("#modal-content").html(table);
 		}
 		
 		function submitScoreTemplate(){
-			$("#modal-content").html("<ul><li id='play-again'>Play again</li><li id='high-scores'>See high scores</li><li id='submit-score'>Submit score</li></ul>");
+			$("#modal-content").removeClass("default");
+			$("#modal-content").addClass("submit-score");
+			$("#game-over-modal").prepend("<span id='back-arrow'>&#x21b5;</span>");
+			$("#modal-header").html("Name?");
+			$("#modal-content").html("<input type='text' id='name-box'></input>");
 		}
 
 		//event handlers
@@ -194,19 +232,26 @@
 		});
 		
 		$("#modal-content").on("click", "li#submit-score", function(event){
-			var data = {score: game.score, name: "Ari"};
-			
-			$.ajax({
-				url: "/scores",
-				type: "POST",
-				data: data,
-				success: function(data){
-				}
-			});
-			
+			submitScoreTemplate();			
 		});
 		
-		$("#modal-content").on("click", "li#high-scores", function(event){
+		$("#modal-content").on("keydown", "input#name-box", function(event){
+			if (event.keyCode == 13){
+				var userName = $("input#name-box").val();
+				var data = {score: game.score, name: userName};
+
+				$.ajax({
+					url: "/scores",
+					type: "POST",
+					data: data,
+					success: function(data){
+						highScoreTemplate(data);
+					}
+				});			
+			}
+		});
+		
+		$("#modal-content").on("click", "li#high-scores", function(event){			
 			$.ajax({
 				url: "/scores",
 				type: "GET",
@@ -216,11 +261,13 @@
 			});
 		});
 		
-		$("#modal-header").on("click", "#back-arrow", function(event){
+		$("#game-over-modal").on("click", "span#back-arrow", function(event){
 			$("#modal-content").addClass("default");
 			$("#modal-content").removeClass("high-scores");
-			submitScoreTemplate();
-		});		
+			$("#modal-content").removeClass("submit-score");
+			$("#back-arrow").remove();
+			defaultTemplate();
+		});
 		
 	});
 		

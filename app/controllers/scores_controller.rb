@@ -1,8 +1,4 @@
 class ScoresController < ApplicationController
-  def main
-    render :index
-  end
-  
   def index
     @scores = Score.order("score DESC").limit(10)
     render json: @scores
@@ -11,7 +7,9 @@ class ScoresController < ApplicationController
   def create
     @score = Score.new(score_params)
     @score.save
-    head :ok
+    # head :ok
+    @scores = Score.order("score DESC").limit(10)
+    render json: @scores
   end
   
   private
