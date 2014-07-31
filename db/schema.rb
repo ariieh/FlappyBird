@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140730171426) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "scores", force: true do |t|
     t.integer  "score",      null: false
     t.string   "name",       null: false
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140730171426) do
     t.datetime "updated_at"
   end
 
-  add_index "scores", ["name"], name: "index_scores_on_name"
-  add_index "scores", ["score"], name: "index_scores_on_score"
+  add_index "scores", ["name"], name: "index_scores_on_name", using: :btree
+  add_index "scores", ["score"], name: "index_scores_on_score", using: :btree
 
 end

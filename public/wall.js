@@ -1,6 +1,6 @@
 (function (root) {
   var FlappyBird = root.FlappyBird = (root.FlappyBird || {});
-  
+  	
   var Wall = FlappyBird.Wall = function (dimX, dimY, type, img) {
 		this.dimX = dimX;
 		this.dimY = dimY;
@@ -8,15 +8,18 @@
 		this.width = 100;
 		this.type = type;
 		this.img = img;
-		
+				
 		if (type === "bottom"){
-			this.yAxis = Math.random() * (dimY - dimY / 2 + 50) + dimY / 2 + 50;
+			this.yAxis = Math.random() * (dimY - dimY / 2 + Wall.bottomOffset) + dimY / 2 + Wall.bottomOffset;			
 		} else {
-			this.yAxis = Math.random() * (dimY / 2) - 100;
+			this.yAxis = Math.random() * (dimY / 2) - Wall.topOffset;
 		}
 		
     this.vx = -1;
 	};
+	
+	Wall.bottomOffset = 100;
+	Wall.topOffset = 100;
 	  
   Wall.prototype.draw = function (ctx) {
     this.xAxis = (this.xAxis + this.vx);

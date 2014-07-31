@@ -6,6 +6,8 @@
 		Game.palmImage = palmImage;
 		Game.vineImage = vineImage;
 		Game.scoreBox = scoreBox;
+		Game.speed = 1500;
+		
 		this.score = 0;
 		
     this.dimX = dimX;
@@ -107,6 +109,11 @@
 		this.score += 1;
 		$(Game.scoreBox).html("Score: " + this.score)
 	}
+	
+	Game.prototype.increaseDifficulty = function(){
+		if (FlappyBird.Wall.bottomOffset > 50){ FlappyBird.Wall.bottomOffset -= 1; }
+		if (FlappyBird.Wall.topOffset > 50){ FlappyBird.Wall.topOffset -= 1; }		
+	}
   
   Game.prototype.step = function (ctx) {
     var game = this;
@@ -123,7 +130,8 @@
 			game.genBottomWall();
 			game.genTopWall();
 			game.removeWalls();
-    }, 2000);
+			game.increaseDifficulty();
+    }, Game.speed);
   };
   
   Game.prototype.bindKeyHandlers = function () {
